@@ -268,5 +268,23 @@ footer {
 .navbar nav a:hover {
   color: #ff0000;
 }
+/* Footer Style */
+footer {
+  background: #1e1e1e;
+  color: #aaa;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+  font-size: 14px;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer p:hover {
+  color: #fff;
+  transition: color 0.3s ease;
+}
 
 
