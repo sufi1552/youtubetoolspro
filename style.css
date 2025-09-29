@@ -286,5 +286,69 @@ footer p:hover {
   color: #fff;
   transition: color 0.3s ease;
 }
+/* Contact Section */
+.contact-section {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.contact-section h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #ff4d4d;
+}
+
+.contact-section p {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+form input,
+form textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #ff4d4d;
+  box-shadow: 0 0 5px rgba(255, 77, 77, 0.5);
+}
+
+form button {
+  background: #ff4d4d;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background: #e60000;
+}
 
 
