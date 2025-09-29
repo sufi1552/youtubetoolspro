@@ -56,6 +56,35 @@
   <footer>
     <p>© 2025 YouTube Tools Pro. All rights reserved.</p>
   </footer>
+  <script>
+function getSuggestions() {
+  let input = document.getElementById("keywordInput").value.trim();
+  let list = document.getElementById("suggestionsList");
+  list.innerHTML = "";
+
+  if (input === "") {
+    list.innerHTML = "<li>Please enter a keyword!</li>";
+    return;
+  }
+
+  // Demo suggestions (later we can connect API)
+  let suggestions = [
+    input + " tutorial",
+    input + " tips",
+    input + " tricks",
+    input + " 2025",
+    "how to " + input,
+    "best " + input
+  ];
+
+  suggestions.forEach(s => {
+    let li = document.createElement("li");
+    li.textContent = s;
+    list.appendChild(li);
+  });
+}
+</script>
+
 </body>
 </html>
 
