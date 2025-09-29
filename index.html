@@ -1,14 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YouTube Tools Pro</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>YouTube Tools Pro — Free vidIQ-style Demo</title>
   <meta name="google-site-verification" content="kJNzJvtFAeDrP2-WBvME3zbmHW_4n-lee8v06GghIbo" />
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Welcome to YouTube Tools Pro 🚀</h1>
-  <p>Google site verification successful ✅</p>
+  <header class="topbar">
+    <div class="brand">YouTube Tools Pro</div>
+    <nav>
+      <a href="#">Features</a>
+      <a href="#">Pricing</a>
+      <a href="#">Blog</a>
+      <a href="#" class="btn-primary" id="tryBtn">Try it free</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Free vidIQ-style analytics — no signup</h1>
+        <p>Paste any YouTube video URL and get a quick growth-summary demo — completely free.</p>
+
+        <div class="search-box">
+          <input id="videoUrl" placeholder="Paste YouTube video URL (e.g. https://www.youtube.com/watch?v=dQw4w9WgXcQ)">
+          <button id="analyzeBtn">Analyze</button>
+        </div>
+
+        <div id="demoMsg" class="muted">Demo tool — shows simulated metrics and suggestions instantly.</div>
+      </div>
+
+      <div class="hero-right">
+        <div class="card">
+          <h3>Why use this</h3>
+          <ul>
+            <li>No signup — open access demo</li>
+            <li>Quick channel/video insights</li>
+            <li>SEO & tag suggestions (sample)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="results" id="results" aria-hidden="true">
+      <div class="result-grid">
+        <div class="metric card">
+          <h4>Estimated Views</h4>
+          <div class="value" id="views">—</div>
+          <div class="mini">Last 7 days</div>
+        </div>
+
+        <div class="metric card">
+          <h4>Engagement</h4>
+          <div class="value" id="engagement">—</div>
+          <div class="mini">Likes / Comments</div>
+        </div>
+
+        <div class="metric card">
+          <h4>SEO Score</h4>
+          <div class="value" id="seo">—</div>
+          <div class="mini">Title & tags</div>
+        </div>
+
+        <div class="metric card">
+          <h4>Suggested Tags</h4>
+          <div class="tags" id="tags">—</div>
+        </div>
+      </div>
+
+      <div class="analysis card" id="analysis">
+        <h4>Quick Suggestions</h4>
+        <ul id="suggestions">
+          <li>Paste a video URL and click Analyze → get instant suggestions.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="features">
+      <h2>Features — Free Demo</h2>
+      <div class="feat-grid">
+        <div class="feat card">
+          <h3>Instant Analysis</h3>
+          <p>Get a simulated snapshot of video performance without creating an account.</p>
+        </div>
+        <div class="feat card">
+          <h3>Title & Tag Ideas</h3>
+          <p>Auto-suggest improvements to your title and tags (demo suggestions).</p>
+        </div>
+        <div class="feat card">
+          <h3>Growth Tips</h3>
+          <p>Actionable tips to improve retention and CTR — quick and practical.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2025 YouTube Tools Pro — Demo</div>
+  </footer>
+
+  <script>
+    // Simple front-end demo simulator (no real API calls)
+    const analyzeBtn = document.getElementById('analyzeBtn');
+    const videoUrl = document.getElementById('videoUrl');
+    const resultsSection = document.getElementById('results');
+    const viewsEl = document.getElementById('views');
+    const engagementEl = document.getElementById('engagement');
+    const seoEl = document.getElementById('seo');
+    const tagsEl = document.getElementById('tags');
+    const suggestionsEl = document.getElementById('suggestions');
+    const demoMsg = document.getElementById('demoMsg');
+
+    function isYouTubeUrl(url){
+      return /^(https?:\\/\\/)?(www\\.)?(youtube\\.com|youtu\\.be)\\/.+/.test(url.trim());
+    }
+
+    function rand(min,max){ return Math.floor(Math.random()*(max-min+1))+min; }
+
+    analyzeBtn.addEventListener('click', () => {
+      const url = videoUrl.value.trim();
+      if(!isYouTubeUrl(url)){
+        demoMsg.textContent = 'Please paste a valid YouTube video URL.';
+        demoMsg.style.color = '#d00';
+        return;
+      }
+      demoMsg.textContent = 'Analyzing... (demo)';
+      demoMsg.style.color = '#555';
+
+      // simulate processing
+      setTimeout(() => {
+        resultsSection.setAttribute('aria-hidden', 'false');
+        const views = rand(500, 20000);
+        const likes = Math.round(views * (rand(1,10)/100));
+        const comments = Math.round(likes * 0.12);
+        const engagement = `${likes} 👍 • ${comments} 💬`;
+        const seoScore = rand(45, 92);
+        const sampleTags = ['how to','tutorial','viral','shorts','youtube tips'].slice(0, rand(2,5));
+
+        viewsEl.textContent = views.toLocaleString();
+        engagementEl.textContent = engagement;
+        seoEl.textContent = seoScore + ' / 100';
+        tagsEl.innerHTML = sampleTags.map(t => '<span class="chip">'+t+'</span>').join(' ');
+
+        suggestionsEl.innerHTML = `
+          <li>Try a shorter, attention-grabbing title (A/B test).</li>
+          <li>Add 3–5 focused tags: ${sampleTags.join(', ')}.</li>
+          <li>Use a custom thumbnail with close-up face and readable text.</li>
+        `;
+      }, 700);
+    });
+
+    // try button scroll
+    document.getElementById('tryBtn').addEventListener('click', e=>{
+      e.preventDefault();
+      videoUrl.scrollIntoView({behavior:'smooth', block:'center'});
+      videoUrl.focus();
+    });
+  </script>
 </body>
 </html>
