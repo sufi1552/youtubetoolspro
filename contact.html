@@ -9,14 +9,37 @@
 <body>
   <!-- Navbar -->
   <div class="navbar">
-    <h1>Contact Us</h1>
+    <img src="https://via.placeholder.com/40" alt="Logo" class="logo">
+    <h1>YouTube Tools Pro</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
   </div>
 
   <!-- Contact Section -->
-  <div class="hero">
-    <h2>Get in Touch</h2>
-    <p>Email us at: <strong>support@youtubetoolspro.com</strong></p>
-    <p>Follow us on social media for updates 🚀</p>
+  <div class="contact-section">
+    <h2>Contact Us</h2>
+    <p>If you have any questions or feedback, feel free to reach out to us!</p>
+    
+    <form>
+      <label for="name">Your Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
   </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 YouTube Tools Pro. All rights reserved.</p>
+  </footer>
 </body>
 </html>
