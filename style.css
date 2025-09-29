@@ -350,5 +350,64 @@ form button {
 form button:hover {
   background: #e60000;
 }
+/* Keyword Tool */
+.keyword-tool {
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.keyword-tool h2 {
+  margin-bottom: 10px;
+  color: #ff4d4d;
+}
+
+.keyword-tool p {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.keyword-tool input {
+  padding: 10px;
+  width: 70%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.keyword-tool button {
+  padding: 10px 15px;
+  background: #ff4d4d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.keyword-tool button:hover {
+  background: #e60000;
+}
+
+#suggestionsList {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+#suggestionsList li {
+  background: #f9f9f9;
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+#suggestionsList li:hover {
+  background: #ffe6e6;
+}
 
 
