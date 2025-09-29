@@ -23,9 +23,8 @@
     <h2>Grow Your YouTube Channel Smarter</h2>
     <p>Free tools to analyze, optimize & grow your channel.</p>
     <button onclick="document.getElementById('keyword-tool').scrollIntoView({behavior: 'smooth'})">
-  Get Started
-</button>
-
+      Get Started
+    </button>
   </div>
 
   <!-- Features -->
@@ -43,51 +42,51 @@
       <p>Track your performance in real time.</p>
     </div>
   </div>
-  <!-- Keyword Tool Section -->
-<div class="keyword-tool">
-  <h2>Keyword Suggestion Tool</h2>
-  <p>Type a keyword and get suggestions instantly!</p>
-  
-  <input type="text" id="keywordInput" placeholder="Enter keyword...">
-  <button onclick="getSuggestions()">Search</button>
-  
-  <ul id="suggestionsList"></ul>
-</div>
 
+  <!-- Keyword Tool Section -->
+  <div class="keyword-tool" id="keyword-tool">
+    <h2>Keyword Suggestion Tool</h2>
+    <p>Type a keyword and get suggestions instantly!</p>
+    
+    <input type="text" id="keywordInput" placeholder="Enter keyword...">
+    <button onclick="getSuggestions()">Search</button>
+    
+    <ul id="suggestionsList"></ul>
+  </div>
 
   <!-- Footer -->
   <footer>
     <p>© 2025 YouTube Tools Pro. All rights reserved.</p>
   </footer>
+
   <script>
-function getSuggestions() {
-  let input = document.getElementById("keywordInput").value.trim();
-  let list = document.getElementById("suggestionsList");
-  list.innerHTML = "";
+    function getSuggestions() {
+      let input = document.getElementById("keywordInput").value.trim();
+      let list = document.getElementById("suggestionsList");
+      list.innerHTML = "";
 
-  if (input === "") {
-    list.innerHTML = "<li>Please enter a keyword!</li>";
-    return;
-  }
+      if (input === "") {
+        list.innerHTML = "<li>Please enter a keyword!</li>";
+        return;
+      }
 
-  // Demo suggestions (later we can connect API)
-  let suggestions = [
-    input + " tutorial",
-    input + " tips",
-    input + " tricks",
-    input + " 2025",
-    "how to " + input,
-    "best " + input
-  ];
+      // Demo suggestions (later we can connect API)
+      let suggestions = [
+        input + " tutorial",
+        input + " tips",
+        input + " tricks",
+        input + " 2025",
+        "how to " + input,
+        "best " + input
+      ];
 
-  suggestions.forEach(s => {
-    let li = document.createElement("li");
-    li.textContent = s;
-    list.appendChild(li);
-  });
-}
-</script>
-
+      suggestions.forEach(s => {
+        let li = document.createElement("li");
+        li.textContent = s;
+        list.appendChild(li);
+      });
+    }
+  </script>
 </body>
 </html>
 
