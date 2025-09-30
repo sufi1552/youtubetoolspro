@@ -54,12 +54,24 @@
     <ul id="suggestionsList"></ul>
   </div>
 
+  <!-- 🔥 SEO Generator Section -->
+  <div class="seo-generator" id="seo-generator">
+    <h2>SEO Title Generator</h2>
+    <p>Enter a keyword and get a catchy YouTube title.</p>
+
+    <input type="text" id="keyword" placeholder="Enter keyword for title" />
+    <button onclick="generateTitle()">Generate Title</button>
+
+    <p><strong>Generated Title:</strong> <span id="titleResult"></span></p>
+  </div>
+
   <!-- Footer -->
   <footer>
     <p>© 2025 YouTube Tools Pro. All rights reserved.</p>
   </footer>
 
   <script>
+    // --- Keyword Suggestion Tool ---
     function getSuggestions() {
       let input = document.getElementById("keywordInput").value.trim();
       let list = document.getElementById("suggestionsList");
@@ -86,7 +98,41 @@
         list.appendChild(li);
       });
     }
+
+    // --- SEO Title Generator ---
+    async function generateTitle() {
+      const keyword = document.getElementById("keyword").value;
+      if (!keyword) {
+        alert("Please enter a keyword!");
+        return;
+      }
+
+      // ⚡ Example using OpenAI API
+      const apiKey = "YOUR_OPENAI_API_KEY"; // <-- apna key yahan dalna
+
+      try {
+        const response = await fetch("https://api.openai.com/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${apiKey}`
+          },
+          body: JSON.stringify({
+            model: "gpt-3.5-turbo",
+            messages: [{ role: "user", content: `Give me a catchy SEO title for keyword: ${keyword}` }],
+            max_tokens: 30
+          })
+        });
+
+        const data = await response.json();
+        const title = data.choices[0].message.content.trim();
+
+        document.getElementById("titleResult").textContent = title;
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Something went wrong. Check API key or connection.");
+      }
+    }
   </script>
 </body>
 </html>
-
