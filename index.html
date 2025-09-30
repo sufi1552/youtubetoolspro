@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -110,6 +109,49 @@
       background: #40739e;
     }
 
+    /* Title Generator Section */
+    .generator {
+      max-width: 700px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .generator h2 {
+      margin-bottom: 20px;
+      color: #273c75;
+      text-align: center;
+    }
+    .generator input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+    .generator button {
+      width: 100%;
+      padding: 12px;
+      background: #0097e6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .generator button:hover {
+      background: #40739e;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f1f2f6;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
     /* Footer */
     footer {
       text-align: center;
@@ -135,7 +177,7 @@
   <div class="hero">
     <h2>All-in-One YouTube Tools</h2>
     <p>Generate SEO-friendly titles, descriptions, and tags for your videos.</p>
-    <button>Get Started</button>
+    <button onclick="document.getElementById('title-gen').scrollIntoView({behavior:'smooth'})">Get Started</button>
   </div>
 
   <!-- Tools Section -->
@@ -143,26 +185,61 @@
     <div class="tool-card">
       <h3>Title Generator</h3>
       <p>Create catchy titles for your videos.</p>
-      <button>Use Tool</button>
+      <button onclick="document.getElementById('title-gen').scrollIntoView({behavior:'smooth'})">Use Tool</button>
     </div>
 
     <div class="tool-card">
       <h3>Description Generator</h3>
       <p>Generate professional video descriptions.</p>
-      <button>Use Tool</button>
+      <button>Coming Soon</button>
     </div>
 
     <div class="tool-card">
       <h3>Tags Generator</h3>
       <p>Find the best SEO tags for YouTube.</p>
-      <button>Use Tool</button>
+      <button>Coming Soon</button>
     </div>
+  </div>
+
+  <!-- Title Generator Tool -->
+  <div class="generator" id="title-gen">
+    <h2>🎬 YouTube Title Generator</h2>
+    <input type="text" id="titleInput" placeholder="Enter your video topic...">
+    <button onclick="generateTitle()">Generate Title</button>
+    <div id="result" class="result" style="display:none;"></div>
   </div>
 
   <!-- Footer -->
   <footer>
     <p>© 2025 YouTube Tools Pro. All rights reserved.</p>
   </footer>
+
+  <script>
+    function generateTitle() {
+      let input = document.getElementById("titleInput").value.trim();
+      let resultBox = document.getElementById("result");
+
+      if (input === "") {
+        resultBox.style.display = "block";
+        resultBox.innerHTML = "⚠️ Please enter a topic!";
+        return;
+      }
+
+      // Demo title generation (later API se connect karenge)
+      let ideas = [
+        "🔥 " + input + " Tips You Need to Know!",
+        "How to Master " + input + " in 2025",
+        "Top 10 " + input + " Mistakes to Avoid",
+        input + " Tutorial for Beginners 🚀",
+        "Ultimate Guide to " + input,
+        input + " Secrets Revealed! 😲"
+      ];
+
+      let random = ideas[Math.floor(Math.random() * ideas.length)];
+
+      resultBox.style.display = "block";
+      resultBox.innerHTML = "<b>Suggested Title:</b><br>" + random;
+    }
+  </script>
 </body>
 </html>
-
