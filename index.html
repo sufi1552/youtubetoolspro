@@ -5,161 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YouTube Tools Pro</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background: #f5f6fa;
-      color: #2f3640;
-    }
-
-    /* Navbar */
-    .navbar {
-      background: #273c75;
-      color: white;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .navbar h1 {
-      font-size: 22px;
-    }
-    .navbar a {
-      color: white;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .navbar a:hover {
-      color: #fbc531;
-    }
-
-    /* Hero Section */
-    .hero {
-      text-align: center;
-      padding: 80px 20px;
-      background: linear-gradient(to right, #0097e6, #8c7ae6);
-      color: white;
-    }
-    .hero h2 {
-      font-size: 40px;
-      margin-bottom: 15px;
-    }
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 25px;
-    }
-    .hero button {
-      padding: 12px 25px;
-      background: #fbc531;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .hero button:hover {
-      background: #e1b12c;
-    }
-
-    /* Tools Section */
-    .tools {
-      padding: 50px 20px;
-      max-width: 1200px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .tool-card {
-      background: white;
-      border-radius: 10px;
-      padding: 25px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: center;
-      transition: transform 0.3s;
-    }
-    .tool-card:hover {
-      transform: translateY(-5px);
-    }
-    .tool-card h3 {
-      margin-bottom: 15px;
-      font-size: 20px;
-      color: #273c75;
-    }
-    .tool-card p {
-      font-size: 15px;
-      margin-bottom: 20px;
-    }
-    .tool-card button {
-      padding: 10px 20px;
-      background: #0097e6;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .tool-card button:hover {
-      background: #40739e;
-    }
-
-    /* Title Generator Section */
-    .generator {
-      max-width: 700px;
-      margin: 40px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    .generator h2 {
-      margin-bottom: 20px;
-      color: #273c75;
-      text-align: center;
-    }
-    .generator input {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      margin-bottom: 15px;
-      font-size: 16px;
-    }
-    .generator button {
-      width: 100%;
-      padding: 12px;
-      background: #0097e6;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .generator button:hover {
-      background: #40739e;
-    }
-    .result {
-      margin-top: 20px;
-      padding: 15px;
-      background: #f1f2f6;
-      border-radius: 6px;
-      font-size: 16px;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #273c75;
-      color: white;
-      margin-top: 40px;
-    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+    body{background:#f5f6fa;color:#2f3640;}
+    .navbar{background:#273c75;color:white;padding:15px 30px;display:flex;justify-content:space-between;align-items:center;}
+    .navbar h1{font-size:22px;}
+    .navbar a{color:white;margin-left:20px;text-decoration:none;font-weight:bold;}
+    .navbar a:hover{color:#fbc531;}
+    .hero{text-align:center;padding:80px 20px;background:linear-gradient(to right,#0097e6,#8c7ae6);color:white;}
+    .hero h2{font-size:40px;margin-bottom:15px;}
+    .hero p{font-size:18px;margin-bottom:25px;}
+    .hero button{padding:12px 25px;background:#fbc531;border:none;border-radius:6px;font-size:16px;cursor:pointer;transition:0.3s;}
+    .hero button:hover{background:#e1b12c;}
+    .tools{padding:50px 20px;max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+    .tool-card{background:white;border-radius:10px;padding:25px;box-shadow:0 4px 10px rgba(0,0,0,0.1);text-align:center;transition:transform 0.3s;}
+    .tool-card:hover{transform:translateY(-5px);}
+    .tool-card h3{margin-bottom:15px;font-size:20px;color:#273c75;}
+    .tool-card p{font-size:15px;margin-bottom:20px;}
+    .tool-card button{padding:10px 20px;background:#0097e6;color:white;border:none;border-radius:6px;cursor:pointer;transition:0.3s;}
+    .tool-card button:hover{background:#40739e;}
+    .generator{max-width:700px;margin:40px auto;background:white;padding:30px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+    .generator h2{margin-bottom:20px;color:#273c75;text-align:center;}
+    .generator input{width:100%;padding:12px;border:1px solid #ccc;border-radius:6px;margin-bottom:15px;font-size:16px;}
+    .generator button{width:100%;padding:12px;background:#0097e6;color:white;border:none;border-radius:6px;cursor:pointer;font-size:16px;}
+    .generator button:hover{background:#40739e;}
+    .result{margin-top:20px;padding:15px;background:#f1f2f6;border-radius:6px;font-size:16px;}
+    footer{text-align:center;padding:20px;background:#273c75;color:white;margin-top:40px;}
   </style>
 </head>
 <body>
@@ -191,13 +61,13 @@
     <div class="tool-card">
       <h3>Description Generator</h3>
       <p>Generate professional video descriptions.</p>
-      <button>Coming Soon</button>
+      <button onclick="document.getElementById('desc-gen').scrollIntoView({behavior:'smooth'})">Use Tool</button>
     </div>
 
     <div class="tool-card">
       <h3>Tags Generator</h3>
       <p>Find the best SEO tags for YouTube.</p>
-      <button>Coming Soon</button>
+      <button onclick="document.getElementById('tags-gen').scrollIntoView({behavior:'smooth'})">Use Tool</button>
     </div>
   </div>
 
@@ -206,7 +76,23 @@
     <h2>🎬 YouTube Title Generator</h2>
     <input type="text" id="titleInput" placeholder="Enter your video topic...">
     <button onclick="generateTitle()">Generate Title</button>
-    <div id="result" class="result" style="display:none;"></div>
+    <div id="titleResult" class="result" style="display:none;"></div>
+  </div>
+
+  <!-- Description Generator Tool -->
+  <div class="generator" id="desc-gen">
+    <h2>📝 YouTube Description Generator</h2>
+    <input type="text" id="descInput" placeholder="Enter your video topic...">
+    <button onclick="generateDescription()">Generate Description</button>
+    <div id="descResult" class="result" style="display:none;"></div>
+  </div>
+
+  <!-- Tags Generator Tool -->
+  <div class="generator" id="tags-gen">
+    <h2>🏷️ YouTube Tags Generator</h2>
+    <input type="text" id="tagsInput" placeholder="Enter your video topic...">
+    <button onclick="generateTags()">Generate Tags</button>
+    <div id="tagsResult" class="result" style="display:none;"></div>
   </div>
 
   <!-- Footer -->
@@ -217,15 +103,8 @@
   <script>
     function generateTitle() {
       let input = document.getElementById("titleInput").value.trim();
-      let resultBox = document.getElementById("result");
-
-      if (input === "") {
-        resultBox.style.display = "block";
-        resultBox.innerHTML = "⚠️ Please enter a topic!";
-        return;
-      }
-
-      // Demo title generation (later API se connect karenge)
+      let resultBox = document.getElementById("titleResult");
+      if (input === "") {resultBox.style.display="block";resultBox.innerHTML="⚠️ Please enter a topic!";return;}
       let ideas = [
         "🔥 " + input + " Tips You Need to Know!",
         "How to Master " + input + " in 2025",
@@ -234,11 +113,25 @@
         "Ultimate Guide to " + input,
         input + " Secrets Revealed! 😲"
       ];
+      let random = ideas[Math.floor(Math.random()*ideas.length)];
+      resultBox.style.display="block";resultBox.innerHTML="<b>Suggested Title:</b><br>"+random;
+    }
 
-      let random = ideas[Math.floor(Math.random() * ideas.length)];
+    function generateDescription() {
+      let input = document.getElementById("descInput").value.trim();
+      let resultBox = document.getElementById("descResult");
+      if (input === "") {resultBox.style.display="block";resultBox.innerHTML="⚠️ Please enter a topic!";return;}
+      let desc = `Welcome to my channel! In this video, we’ll cover everything about ${input}. 
+Don’t forget to like 👍, comment 💬, and subscribe 🔔 for more amazing content!`;
+      resultBox.style.display="block";resultBox.innerHTML="<b>Suggested Description:</b><br>"+desc;
+    }
 
-      resultBox.style.display = "block";
-      resultBox.innerHTML = "<b>Suggested Title:</b><br>" + random;
+    function generateTags() {
+      let input = document.getElementById("tagsInput").value.trim();
+      let resultBox = document.getElementById("tagsResult");
+      if (input === "") {resultBox.style.display="block";resultBox.innerHTML="⚠️ Please enter a topic!";return;}
+      let tags = [input,"best "+input,"2025 "+input,"how to "+input,"top "+input,"learn "+input];
+      resultBox.style.display="block";resultBox.innerHTML="<b>Suggested Tags:</b><br>"+tags.join(", ");
     }
   </script>
 </body>
