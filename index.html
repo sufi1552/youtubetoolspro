@@ -1,138 +1,168 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YouTube Tools Pro</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f6fa;
+      color: #2f3640;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #273c75;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar h1 {
+      font-size: 22px;
+    }
+    .navbar a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .navbar a:hover {
+      color: #fbc531;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(to right, #0097e6, #8c7ae6);
+      color: white;
+    }
+    .hero h2 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+    .hero button {
+      padding: 12px 25px;
+      background: #fbc531;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .hero button:hover {
+      background: #e1b12c;
+    }
+
+    /* Tools Section */
+    .tools {
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .tool-card {
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .tool-card:hover {
+      transform: translateY(-5px);
+    }
+    .tool-card h3 {
+      margin-bottom: 15px;
+      font-size: 20px;
+      color: #273c75;
+    }
+    .tool-card p {
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+    .tool-card button {
+      padding: 10px 20px;
+      background: #0097e6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .tool-card button:hover {
+      background: #40739e;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #273c75;
+      color: white;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
   <!-- Navbar -->
   <div class="navbar">
-    <img src="logo.png" alt="Logo" class="logo">
     <h1>YouTube Tools Pro</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <div>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
   </div>
 
   <!-- Hero -->
   <div class="hero">
-    <h2>Grow Your YouTube Channel Smarter</h2>
-    <p>Free tools to analyze, optimize & grow your channel.</p>
-    <button onclick="document.getElementById('keyword-tool').scrollIntoView({behavior: 'smooth'})">
-      Get Started
-    </button>
+    <h2>All-in-One YouTube Tools</h2>
+    <p>Generate SEO-friendly titles, descriptions, and tags for your videos.</p>
+    <button>Get Started</button>
   </div>
 
-  <!-- Features -->
-  <div class="features">
-    <div class="feature">
-      <h3>Keyword Research</h3>
-      <p>Find trending keywords to rank higher.</p>
+  <!-- Tools Section -->
+  <div class="tools">
+    <div class="tool-card">
+      <h3>Title Generator</h3>
+      <p>Create catchy titles for your videos.</p>
+      <button>Use Tool</button>
     </div>
-    <div class="feature">
-      <h3>SEO Analyzer</h3>
-      <p>Analyze titles, tags & descriptions easily.</p>
+
+    <div class="tool-card">
+      <h3>Description Generator</h3>
+      <p>Generate professional video descriptions.</p>
+      <button>Use Tool</button>
     </div>
-    <div class="feature">
-      <h3>Growth Tracker</h3>
-      <p>Track your performance in real time.</p>
+
+    <div class="tool-card">
+      <h3>Tags Generator</h3>
+      <p>Find the best SEO tags for YouTube.</p>
+      <button>Use Tool</button>
     </div>
-  </div>
-
-  <!-- Keyword Tool Section -->
-  <div class="keyword-tool" id="keyword-tool">
-    <h2>Keyword Suggestion Tool</h2>
-    <p>Type a keyword and get suggestions instantly!</p>
-    
-    <input type="text" id="keywordInput" placeholder="Enter keyword...">
-    <button onclick="getSuggestions()">Search</button>
-    
-    <ul id="suggestionsList"></ul>
-  </div>
-
-  <!-- 🔥 SEO Generator Section -->
-  <div class="seo-generator" id="seo-generator">
-    <h2>SEO Title Generator</h2>
-    <p>Enter a keyword and get a catchy YouTube title.</p>
-
-    <input type="text" id="keyword" placeholder="Enter keyword for title" />
-    <button onclick="generateTitle()">Generate Title</button>
-
-    <p><strong>Generated Title:</strong> <span id="titleResult"></span></p>
   </div>
 
   <!-- Footer -->
   <footer>
     <p>© 2025 YouTube Tools Pro. All rights reserved.</p>
   </footer>
-
-  <script>
-    // --- Keyword Suggestion Tool ---
-    function getSuggestions() {
-      let input = document.getElementById("keywordInput").value.trim();
-      let list = document.getElementById("suggestionsList");
-      list.innerHTML = "";
-
-      if (input === "") {
-        list.innerHTML = "<li>Please enter a keyword!</li>";
-        return;
-      }
-
-      // Demo suggestions (later we can connect API)
-      let suggestions = [
-        input + " tutorial",
-        input + " tips",
-        input + " tricks",
-        input + " 2025",
-        "how to " + input,
-        "best " + input
-      ];
-
-      suggestions.forEach(s => {
-        let li = document.createElement("li");
-        li.textContent = s;
-        list.appendChild(li);
-      });
-    }
-
-    // --- SEO Title Generator ---
-    async function generateTitle() {
-      const keyword = document.getElementById("keyword").value;
-      if (!keyword) {
-        alert("Please enter a keyword!");
-        return;
-      }
-
-      // ⚡ Example using OpenAI API
-      const apiKey = "YOUR_OPENAI_API_KEY"; // <-- apna key yahan dalna
-
-      try {
-        const response = await fetch("https://api.openai.com/v1/chat/completions", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${apiKey}`
-          },
-          body: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: [{ role: "user", content: `Give me a catchy SEO title for keyword: ${keyword}` }],
-            max_tokens: 30
-          })
-        });
-
-        const data = await response.json();
-        const title = data.choices[0].message.content.trim();
-
-        document.getElementById("titleResult").textContent = title;
-      } catch (error) {
-        console.error("Error:", error);
-        alert("Something went wrong. Check API key or connection.");
-      }
-    }
-  </script>
 </body>
 </html>
+
